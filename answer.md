@@ -253,3 +253,29 @@ Yêu cầu: Viết chỉ phần cấu trúc HTML (không cần nội dung thật
     </footer>
 </body>
 </html>
+
+Câu C2:Một đồng nghiệp nói: "Dùng <div> cho mọi thứ rồi thêm class là được, không cần semantic HTML. Tốn thời gian học thêm thẻ mới."
+
+Viết 1 đoạn phản biện (200-300 từ), phải bao gồm:
+
+Ít nhất 2 lý do kỹ thuật (SEO, Accessibility)
+1 ví dụ cụ thể chứng minh semantic HTML giúp ích
+1 trường hợp thực tế mà <div> vẫn phù hợp
+
+Quan điểm “chỉ dùng <div> + class là đủ” có thể chạy được về mặt hiển thị, nhưng bỏ qua lợi ích kỹ thuật cốt lõi của semantic HTML.
+
+Thứ nhất là SEO. Công cụ tìm kiếm phân tích DOM để hiểu cấu trúc và mức độ quan trọng của nội dung. Các thẻ như <header>, <nav>, <main>, <article>, <section> tạo ra tín hiệu ngữ nghĩa rõ ràng rằng đâu là nội dung chính, đâu là điều hướng, đâu là một đơn vị nội dung độc lập. Nếu thay tất cả bằng <div>, hệ thống sẽ phải suy đoán dựa trên class (không chuẩn hóa), dẫn đến kém chính xác và xếp hạng thấp hơn.Thứ hai là accessibility (khả năng truy cập). Trình đọc màn hình dựa vào semantic để điều hướng nhanh. Ví dụ, người dùng có thể nhảy thẳng tới <main> hoặc duyệt các mục trong <nav>. Nếu mọi thứ là <div>, trải nghiệm của người dùng trở nên rối rắm, khó định hướng.
+
+Ví dụ cụ thể: Breadcrumb nên dùng:
+
+<nav aria-label="breadcrumb">
+  <ol>
+    <li><a href="/">Trang chủ</a></li>
+    <li aria-current="page">iPhone 16</li>
+  </ol>
+</nav>
+
+Cách này vừa rõ thứ tự (ol), vừa là điều hướng (nav), lại hỗ trợ ARIA—tốt cho cả SEO lẫn accessibility. Dùng <div> sẽ mất toàn bộ ngữ nghĩa này.
+
+Tuy vậy, <div> vẫn phù hợp cho các wrapper thuần trình bày hoặc hook JS/CSS, ví dụ container layout (<div class="grid">), portal/modal root, hoặc khi không có thẻ semantic tương ứng. 
+Kết luận: semantic HTML không phải Thừa, mà là chuẩn nền tảng để hệ thống hiểu đúng nội dung của bạn.
