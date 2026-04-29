@@ -118,3 +118,138 @@ Câu B4: Tiki.vn
         Nguồn tham khảo: Chương 5-05_tables_hyperlinks.md
             -Phần HyperLink
     3.Phân tích form 
+
+
+Phần C: Suy Luận
+
+Câu C1:Bạn được giao thiết kế cấu trúc HTML cho trang chi tiết sản phẩm (giống trang sản phẩm Shopee/Tiki). Trang bao gồm:
+
+Header + Navigation
+Breadcrumb (Trang chủ > Điện thoại > iPhone 16)
+Khu vực ảnh sản phẩm (5 ảnh)
+Thông tin sản phẩm (tên, giá, đánh giá sao, mô tả)
+Bảng thông số kỹ thuật
+Khu vực đánh giá/bình luận
+Sidebar: Sản phẩm tương tự
+Footer
+Yêu cầu: Viết chỉ phần cấu trúc HTML (không cần nội dung thật, chỉ cần đúng thẻ và nesting). Mỗi thẻ phải có comment giải thích tại sao bạn chọn thẻ đó.
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"> <!-- charset vì cần mã hóa tiếng Việt đúng -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport vì cần responsive trên mobile -->
+    <title>Chi tiết sản phẩm</title> <!-- title vì đây là tiêu đề tab trình duyệt -->
+</head>
+<body>
+    <header> <!-- header vì đây là phần đầu trang -->
+        <nav aria-label="Điều hướng chính"> <!-- nav vì đây là khu vực điều hướng của trang -->
+            <ul> <!-- ul vì menu điều hướng thường là danh sách các liên kết -->
+                <li><a href="/">Trang chủ</a></li> <!-- li vì mỗi mục menu là một phần tử danh sách -->
+                <li><a href="/dien-thoai">Điện thoại</a></li>
+                <li><a href="/dien-thoai/iphone-16">iPhone 16</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav aria-label="breadcrumb"> <!-- nav vì breadcrumb là một dạng điều hướng phụ -->
+        <ol> <!-- ol vì breadcrumb có thứ tự cấp bậc -->
+            <li><a href="/">Trang chủ</a></li> <!-- li vì mỗi cấp là một phần tử của breadcrumb -->
+            <li><a href="/dien-thoai">Điện thoại</a></li>
+            <li aria-current="page">iPhone 16</li> <!-- aria-current vì đây là trang hiện tại -->
+        </ol>
+    </nav>
+
+    <main> <!-- main vì đây là nội dung chính của trang -->
+        <section aria-labelledby="product-images"> <!-- section vì đây là một khu nội dung riêng -->
+            <h2 id="product-images">Ảnh sản phẩm</h2> <!-- h2 vì đây là tiêu đề của khu ảnh -->
+            <figure> <!-- figure vì ảnh sản phẩm là một khối nội dung độc lập -->
+                <img src="#" alt=""> <!-- img vì đây là ảnh sản phẩm -->
+                <figcaption>Ảnh 1</figcaption> <!-- figcaption vì cần chú thích cho ảnh -->
+            </figure>
+            <figure>
+                <img src="#" alt="">
+                <figcaption>Ảnh 2</figcaption>
+            </figure>
+            <figure>
+                <img src="#" alt="">
+                <figcaption>Ảnh 3</figcaption>
+            </figure>
+            <figure>
+                <img src="#" alt="">
+                <figcaption>Ảnh 4</figcaption>
+            </figure>
+            <figure>
+                <img src="#" alt="">
+                <figcaption>Ảnh 5</figcaption>
+            </figure>
+        </section>
+
+        <section aria-labelledby="product-info"> <!-- section vì đây là khối thông tin sản phẩm -->
+            <h2 id="product-info">Thông tin sản phẩm</h2> <!-- h2 vì là tiêu đề khu vực -->
+            <article> <!-- article vì thông tin sản phẩm là một nội dung độc lập -->
+                <h3>...</h3> <!-- h3 vì là tiêu đề tên sản phẩm trong article -->
+                <p>...</p> <!-- p vì mô tả và giá là văn bản nội dung -->
+                <p aria-label="Đánh giá sao">...</p> <!-- p vì hiển thị rating dạng văn bản/biểu tượng -->
+                <p>...</p>
+            </article>
+        </section>
+
+        <section aria-labelledby="specs"> <!-- section vì đây là khu thông số kỹ thuật -->
+            <h2 id="specs">Bảng thông số kỹ thuật</h2>
+            <table> <!-- table vì dữ liệu dạng bảng -->
+                <caption>Thông số kỹ thuật sản phẩm</caption> <!-- caption vì cần mô tả nội dung bảng -->
+                <thead> <!-- thead vì đây là hàng tiêu đề của bảng -->
+                    <tr> <!-- tr vì mỗi hàng bảng phải nằm trong một hàng -->
+                        <th>...</th> <!-- th vì đây là ô tiêu đề cột -->
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody> <!-- tbody vì đây là phần dữ liệu chính của bảng -->
+                    <tr>
+                        <td>...</td> <!-- td vì đây là ô dữ liệu bình thường -->
+                        <td>...</td>
+                    </tr>
+                </tbody>
+                <tfoot> <!-- tfoot vì đây là phần tổng kết/chú thích cuối bảng -->
+                    <tr>
+                        <td colspan="2">...</td> <!-- colspan vì cần gộp nhiều cột -->
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section aria-labelledby="reviews"> <!-- section vì đây là khu đánh giá/bình luận -->
+            <h2 id="reviews">Đánh giá / Bình luận</h2>
+            <article> <!-- article vì mỗi bình luận là một nội dung độc lập -->
+                <header> <!-- header vì bình luận có phần đầu: tên/ngày/điểm -->
+                    <h3>...</h3>
+                </header>
+                <p>...</p>
+            </article>
+            <article>
+                <header>
+                    <h3>...</h3>
+                </header>
+                <p>...</p>
+            </article>
+        </section>
+    </main>
+
+    <aside aria-labelledby="similar-products"> <!-- aside vì đây là nội dung phụ, không phải trọng tâm -->
+        <h2 id="similar-products">Sản phẩm tương tự</h2> <!-- h2 vì là tiêu đề của sidebar -->
+        <article> <!-- article vì mỗi sản phẩm tương tự là một khối riêng -->
+            <h3>...</h3>
+            <p>...</p>
+        </article>
+        <article>
+            <h3>...</h3>
+            <p>...</p>
+        </article>
+    </aside>
+
+    <footer> <!-- footer vì đây là phần chân trang -->
+        <p>...</p> <!-- p vì thông tin bản quyền/liên hệ thường là văn bản -->
+    </footer>
+</body>
+</html>
