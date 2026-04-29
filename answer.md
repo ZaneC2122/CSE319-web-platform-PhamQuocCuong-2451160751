@@ -88,18 +88,33 @@ Nguồn tham chiếu: Chương 5-05_tables_hyperlinks.md
 
 Phần B THỰC HÀNH 
 Câu B3:
-Lỗi 1: Dòng 1 — <!DOCTYPE> sai cú pháp — Sửa thành <!DOCTYPE html>
-Lỗi 2: Dòng 3 — Thiếu thuộc tính lang cho <html> — Sửa thành <html lang="vi">
-Lỗi 3: Dòng 5 — Thẻ <title> không đóng — Thêm </title>
-Lỗi 4: Dòng 6 — charset sai "utf8" — Sửa thành "UTF-8"
-Lỗi 5: Dòng 10 — Thẻ <h1> không đóng đúng — Sửa </h1>
-Lỗi 6: Dòng 14 — Thẻ <a> không đóng — Sửa thành </a>
-Lỗi 7: Dòng 14 — href không phải anchor hợp lệ — Sửa thành href="#home"
-Lỗi 8: Dòng 20 — <img> thiếu dấu ngoặc kép và alt — Sửa thành <img src="iphone.jpg" alt="...">
-Lỗi 9: Dòng 22 — Sai nesting thẻ <b> — Đặt <strong> đúng vị trí
-Lỗi 10: Dòng 28 — Table không có thead/tbody — Bổ sung cấu trúc semantic
-Lỗi 11: Dòng 37 — Dùng 2 thẻ <main> — Sửa cái thứ 2 thành <aside>
-Lỗi 12: Dòng 42 — <footer> thiếu thẻ đóng <p> — Thêm </p>
-Lỗi 13: Thiếu semantic cho hình ảnh — Thêm <figure> và <figcaption>
-Lỗi 14: Heading hierarchy sai (h1 → h3) — Sửa thành h1 → h2
-Lỗi 15: Không có alt cho ảnh — Bổ sung để tăng SEO và accessibility
+    Lỗi 1: Dòng 1 — <!DOCTYPE> sai cú pháp — Sửa thành <!DOCTYPE html>
+    Lỗi 2: Dòng 3 — Thiếu thuộc tính lang cho <html> — Sửa thành <html lang="vi">
+    Lỗi 3: Dòng 5 — Thẻ <title> không đóng — Thêm </title>
+    Lỗi 4: Dòng 6 — charset sai "utf8" — Sửa thành "UTF-8"
+    Lỗi 5: Dòng 10 — Thẻ <h1> không đóng đúng — Sửa </h1>
+    Lỗi 6: Dòng 14 — Thẻ <a> không đóng — Sửa thành </a>
+    Lỗi 7: Dòng 14 — href không phải anchor hợp lệ — Sửa thành href="#home"
+    Lỗi 8: Dòng 20 — <img> thiếu dấu ngoặc kép và alt — Sửa thành <img src="iphone.jpg" alt="...">
+    Lỗi 9: Dòng 22 — Sai nesting thẻ <b> — Đặt <strong> đúng vị trí
+    Lỗi 10: Dòng 28 — Table không có thead/tbody — Bổ sung cấu trúc semantic
+    Lỗi 11: Dòng 37 — Dùng 2 thẻ <main> — Sửa cái thứ 2 thành <aside>
+    Lỗi 12: Dòng 42 — <footer> thiếu thẻ đóng <p> — Thêm </p>
+    Lỗi 13: Thiếu semantic cho hình ảnh — Thêm <figure> và <figcaption>
+    Lỗi 14: Heading hierarchy sai (h1 → h3) — Sửa thành h1 → h2
+    Lỗi 15: Không có alt cho ảnh — Bổ sung để tăng SEO và accessibility
+
+Câu B4: Tiki.vn
+    1.Chụp tab Element:
+        - 3 thẻ semantic HTML5 mà tiki sử dụng là:
+            . Thẻ <html> thẻ gốc của toàn bộ tài liệu 
+            . Thẻ <head> chứa metadata (CSS, script,....)
+            . Thẻ <body> chứa toàn bộ nội dung hiển thị của trang
+        - 2 thẻ mà trang đó KHÔNG dùng đúng semantic (nếu có) là:
+            . Sử dụng quá nhiều thẻ div thay cho các thẻ semantic
+            . Không sử dụng thẻ <main> tất cả nội dung chính được bọc trong thẻ <div id="__next">
+    2.Phân tích table
+        - Trang tiki không sử dụng table thay vào đó là các HyperLinks
+        Nguồn tham khảo: Chương 5-05_tables_hyperlinks.md
+            -Phần HyperLink
+    3.Phân tích form 
