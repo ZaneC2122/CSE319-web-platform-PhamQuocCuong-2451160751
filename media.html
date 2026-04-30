@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Giới thiệu sản phẩm</title>
+</head>
+<body>
+    <header>
+        <h1>Giới thiệu sản phẩm multimedia</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="product-images">
+            <h2 id="product-images">Ảnh sản phẩm</h2>
+
+            <figure>
+                <img src="https://placehold.co/600x400" alt="Ảnh mặt trước của sản phẩm điện thoại" loading="lazy" style="max-width: 100%; height: auto;">
+                <figcaption>Mặt trước sản phẩm</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://placehold.co/600x400" alt="Ảnh mặt sau của sản phẩm điện thoại" loading="lazy" style="max-width: 100%; height: auto;">
+                <figcaption>Mặt sau sản phẩm</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://placehold.co/600x400" alt="Ảnh sản phẩm điện thoại khi cầm trên tay" loading="lazy" style="max-width: 100%; height: auto;">
+                <figcaption>Trải nghiệm sử dụng thực tế</figcaption>
+            </figure>
+        </section>
+
+        <section aria-labelledby="youtube-video">
+            <h2 id="youtube-video">Video YouTube</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video giới thiệu sản phẩm" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <section aria-labelledby="local-video">
+            <h2 id="local-video">Video sản phẩm</h2>
+            <video controls poster="https://placehold.co/800x450" width="800" style="max-width: 100%; height: auto;">
+                <source src="product-demo.webm" type="video/webm">
+                <source src="product-demo.mp4" type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ thẻ video.
+            </video>
+        </section>
+
+        <section aria-labelledby="audio-section">
+            <h2 id="audio-section">Âm thanh giới thiệu</h2>
+            <audio controls>
+                <source src="intro-music.mp3" type="audio/mpeg">
+                <source src="intro-music.ogg" type="audio/ogg">
+                Trình duyệt của bạn không hỗ trợ thẻ audio.
+            </audio>
+        </section>
+
+        <section aria-labelledby="svg-section">
+            <h2 id="svg-section">SVG inline</h2>
+            <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo hình tròn đơn giản">
+                <circle cx="60" cy="60" r="50" fill="#4CAF50"></circle>
+                <rect x="45" y="45" width="30" height="30" fill="#FFFFFF"></rect>
+            </svg>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 ShopTLU</p>
+    </footer>
+</body>
+</html>
