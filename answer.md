@@ -237,3 +237,31 @@ Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" 
 
     <input type="checkbox" id="agree" name="agree" required>
     <label for="agree">Tôi đồng ý điều khoản</label>
+
+Câu C2 (10đ) — Thiết kế chiến lược Validation
+Bạn xây dựng form đăng ký cho ngân hàng số. Yêu cầu:
+
+CMND/CCCD: đúng 12 chữ số
+Số tài khoản: 10-15 chữ số
+Email: bắt buộc, đúng format
+PIN: đúng 6 chữ số, KHÔNG hiển thị
+Câu hỏi:
+
+Viết pattern regex cho CMND/CCCD và Số tài khoản
+Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+
+    CMND/CCCD: ^\d{12}$
+    Số tài khoản: ^\d{10,15}$
+
+    HTML5 validation chưa đủ an toàn cho ứng dụng ngân hàng vì chỉ chạy ở phía client và có thể bị tắt hoặc bypass. Nó chỉ kiểm tra định dạng cơ bản, không phải cơ chế bảo mật.
+
+    3 loại validation HTML5 không làm được và cần JavaScript:
+    1. Kiểm tra logic giữa nhiều trường dữ liệu.
+    2. Kiểm tra dữ liệu qua API/database.
+    3. Kiểm tra theo điều kiện nghiệp vụ động, phức tạp.
+
+    2 rủi ro nếu chỉ validate frontend:
+    1. Dữ liệu độc hại hoặc sai định dạng lọt vào server.
+    2. Kẻ tấn công sửa request để gian lận hoặc tạo giao dịch trái phép.
