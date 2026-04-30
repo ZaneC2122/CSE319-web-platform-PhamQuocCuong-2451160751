@@ -47,3 +47,38 @@ Nguồn tham chiếu: Chương 7-07_forms_interactive.md
     Lý do: Độ dài 3 < minlength=8 → tooShort = true.
 
     - Trong 4 trường hợp đầu tiên chạy đúng như dự đoán ban đầu nhưng trường hợp 5 lại có thể submit như bình thường sai lệch với dự đoán đề ra 
+
+Câu A3 (5đ) — Accessibility
+Đọc phần Accessibility trong chương 07. Giải thích:
+
+Tại sao <label for="email"> quan trọng cho người dùng screen reader?
+Khi nào dùng <fieldset> + <legend>? Cho ví dụ cụ thể.
+aria-label dùng khi nào? Tại sao KHÔNG nên dùng aria-label khi đã có <label>?
+Nguồn tham chiếu: Chương 7-07_forms_interactive.md
+    -Phần Accessibility — Form cho mọi người
+
+    1) Vì sao <label for="email"> quan trọng với screen reader?
+    Tạo “accessible name” cho input: Khi for trỏ đúng id, screen reader đọc “Nhãn + trạng thái” (ví dụ: “Email, edit text, required”). Không có <label>, người dùng chỉ nghe “edit text” → mất ngữ cảnh.
+    Mở rộng vùng click/focus: Click vào label sẽ focus vào input → hỗ trợ người dùng vận động hạn chế.
+    Liên kết có cấu trúc: Trình đọc màn hình và công cụ hỗ trợ dựa vào quan hệ label–control để điều hướng form nhanh hơn.
+    
+    2) Khi nào dùng <fieldset> + <legend>? Ví dụ
+    Dùng khi nhóm nhiều control liên quan (radio/checkbox hoặc các trường cùng một chủ đề) để cung cấp ngữ cảnh cấp nhóm cho người dùng, đặc biệt là screen reader.
+    <legend> là tiêu đề của nhóm, được đọc trước khi duyệt từng control trong nhóm.
+
+    Ví dụ (chọn phương thức thanh toán):
+    <fieldset>
+    <legend>Phương thức thanh toán</legend>
+    <label><input type="radio" name="pay" value="cod"> Thanh toán khi nhận hàng</label>
+    <label><input type="radio" name="pay" value="card"> Thẻ tín dụng</label>
+    <label><input type="radio" name="pay" value="ewallet"> Ví điện tử</label>
+    </fieldset>
+    → Screen reader sẽ đọc: “Phương thức thanh toán, group” rồi đến từng lựa chọn.
+
+    3) aria-label dùng khi nào? Vì sao không nên dùng khi đã có <label>?
+    Dùng khi không có (hoặc không thể có) nhãn hiển thị bằng <label>/text — ví dụ icon button hoặc input ẩn nhãn:
+    <button aria-label="Tìm kiếm">🔍</button>
+    Không nên dùng khi đã có <label> vì:
+    Gây trùng lặp hoặc xung đột accessible name (screen reader có thể đọc hai lần hoặc ưu tiên aria-label ghi đè nội dung label).
+    Tăng chi phí bảo trì/i18n: phải đồng bộ hai nguồn nội dung.
+    Vi phạm nguyên tắc “native HTML first”: ưu tiên cơ chế ngữ nghĩa sẵn có (<label>, <legend>) trước ARIA.
