@@ -82,3 +82,58 @@ Nguồn tham chiếu: Chương 7-07_forms_interactive.md
     Gây trùng lặp hoặc xung đột accessible name (screen reader có thể đọc hai lần hoặc ưu tiên aria-label ghi đè nội dung label).
     Tăng chi phí bảo trì/i18n: phải đồng bộ hai nguồn nội dung.
     Vi phạm nguyên tắc “native HTML first”: ưu tiên cơ chế ngữ nghĩa sẵn có (<label>, <legend>) trước ARIA.
+
+Câu A4 (5đ) — Media 
+1.Giải thích thuộc tính loading="lazy" trên thẻ <img>. Nó cải thiện gì? Khi nào KHÔNG nên dùng? 
+2.Tại sao nên cung cấp nhiều <source> trong thẻ <video>? Liệt kê ít nhất 3 format video web phổ biến. 
+3.Thuộc tính alt trên <img> dùng để làm gì? Viết alt tốt cho 3 trường hợp: 
+    Ảnh sản phẩm iPhone 16 
+    Ảnh trang trí (decorative) 
+    Ảnh biểu đồ doanh thu Q1/2026
+Nguồn tham chiếu 
+    AI+Chương 4-04_visible_part_html.md
+    -Phần Media — Ảnh, Video, Audio
+    Chương6-06_graphics_multimedia.md
+    -Phần Images — Responsive và tối ưu
+
+    1) loading="lazy" trên <img> là gì?
+
+    *)loading="lazy" yêu cầu trình duyệt hoãn tải ảnh cho đến khi ảnh sắp xuất hiện trong vùng nhìn thấy của người dùng.
+        -Nó cải thiện:
+            Tốc độ tải ban đầu của trang
+            Giảm băng thông
+            Giảm số request khởi tạo
+            Cải thiện LCP/UX nếu ảnh nằm dưới màn hình
+
+        -Không nên dùng cho:
+            Ảnh quan trọng ngay đầu trang, nhất là ảnh hero / ảnh chính / ảnh LCP
+            Ảnh cần hiển thị ngay lập tức cho trải nghiệm ban đầu
+            Trường hợp ảnh phải tải sớm để tránh layout nhảy hoặc để trang nhìn đầy đủ ngay khi mở
+    2) Vì sao nên cung cấp nhiều <source> trong <video>?
+        Vì mỗi trình duyệt hỗ trợ codec/format khác nhau. Dùng nhiều <source> giúp:
+            Tăng tương thích trình duyệt
+            Tránh lỗi “không phát được video”
+            Cho phép trình duyệt chọn định dạng phù hợp nhất
+        3 format video web phổ biến:
+            MP4 (.mp4, thường dùng H.264/AAC)
+            WebM (.webm)
+            Ogg (.ogv / .ogg)
+
+    3) alt trên <img> dùng để làm gì?
+        alt là văn bản thay thế cho ảnh, dùng khi:
+            Ảnh không tải được
+            Người dùng dùng screen reader
+            Công cụ tìm kiếm hiểu nội dung ảnh
+        alt tốt phải:
+            Mô tả đúng mục đích của ảnh
+            Ngắn gọn, tự nhiên
+            Không nhồi từ khóa
+        Viết alt tốt cho 3 trường hợp
+            Ảnh sản phẩm iPhone 16
+            <img src="iphone16.jpg" alt="iPhone 16 màu xanh titan">
+
+            Ảnh trang trí (decorative)
+            <img src="decor.png" alt="">
+
+            Ảnh biểu đồ doanh thu Q1/2026
+            <img src="revenue-q1-2026.png" alt="Biểu đồ doanh thu quý 1 năm 2026 tăng từ tháng 1 đến tháng 3">
