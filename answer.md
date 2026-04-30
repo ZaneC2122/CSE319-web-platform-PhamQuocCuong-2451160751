@@ -137,3 +137,28 @@ Nguồn tham chiếu
 
             Ảnh biểu đồ doanh thu Q1/2026
             <img src="revenue-q1-2026.png" alt="Biểu đồ doanh thu quý 1 năm 2026 tăng từ tháng 1 đến tháng 3">
+
+Câu A5 (5đ) — So sánh <figure> vs <img>
+<!-- Cách 1 -->
+<img src="product.jpg" alt="iPhone">
+
+<!-- Cách 2 -->
+<figure>
+    <img src="product.jpg" alt="iPhone 16 Pro Max 256GB Titan">
+    <figcaption>iPhone 16 Pro Max — 25.990.000đ</figcaption>
+</figure>
+Khi nào dùng Cách 1, khi nào dùng Cách 2? Cho 2 ví dụ thực tế cho mỗi cách.
+Nguồn tham chiếu AI+Chương 6-06_graphics_multimedia.md
+    -Phần Images — Responsive và tối ưu
+
+    Cách 1: <img> đơn lẻ
+    Dùng khi ảnh chỉ đóng vai trò minh họa thuần và bản thân ảnh đã đủ ngữ cảnh từ phần xung quanh, hoặc khi không cần chú thích riêng.
+    Ví dụ thực tế:
+    Ảnh avatar người dùng trong danh sách bình luận.
+    Ảnh icon minh họa trong banner trang chủ.
+
+    Cách 2: <figure> + <figcaption>
+    Dùng khi ảnh là một đối tượng nội dung độc lập và cần chú thích, mô tả, tên, giá, nguồn, hoặc giải thích đi kèm.
+    Ví dụ thực tế:
+    Ảnh sản phẩm trong trang bán hàng, kèm tên và giá.
+    Ảnh biểu đồ, sơ đồ, hoặc ảnh minh họa trong bài viết học thuật kèm chú thích.
