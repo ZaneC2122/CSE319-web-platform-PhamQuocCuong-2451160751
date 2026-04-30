@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form giao hàng</title>
+</head>
+<body>
+
+<main>
+    <form action="#" method="POST">
+
+        <!-- Fieldset 1 -->
+        <fieldset>
+            <legend>Thông tin giao hàng</legend>
+
+            <p>
+                <label for="city">Thành phố</label><br>
+                <select id="city" name="city" required>
+                    <option value="" selected disabled>Chọn thành phố</option>
+                    <option value="ha-noi">Hà Nội</option>
+                    <option value="ho-chi-minh">TP. Hồ Chí Minh</option>
+                    <option value="da-nang">Đà Nẵng</option>
+                    <option value="hai-phong">Hải Phòng</option>
+                    <option value="can-tho">Cần Thơ</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="district">Quận/Huyện</label><br>
+                <select id="district" name="district" required>
+                    <option value="" selected disabled>Chọn quận/huyện</option>
+                    <option value="district-1">Quận 1</option>
+                    <option value="district-2">Quận 2</option>
+                    <option value="district-3">Quận 3</option>
+                    <option value="district-4">Quận 4</option>
+                    <option value="district-5">Quận 5</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="address">Địa chỉ chi tiết</label><br>
+                <textarea
+                    id="address"
+                    name="address"
+                    rows="3"
+                    placeholder="Số nhà, tên đường, phường/xã..."
+                    required></textarea>
+            </p>
+        </fieldset>
+
+        <!-- Fieldset 2 -->
+        <fieldset>
+            <legend>Giới tính</legend>
+
+            <p>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Nam</label>
+            </p>
+
+            <p>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Nữ</label>
+            </p>
+
+            <p>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Khác</label>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">Tôi đồng ý với điều khoản sử dụng</label>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </p>
+
+    </form>
+</main>
+
+</body>
+</html>
