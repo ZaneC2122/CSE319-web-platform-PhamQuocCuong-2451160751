@@ -265,3 +265,6 @@ Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không valid
     2 rủi ro nếu chỉ validate frontend:
     1. Dữ liệu độc hại hoặc sai định dạng lọt vào server.
     2. Kẻ tấn công sửa request để gian lận hoặc tạo giao dịch trái phép.
+
+PHẦN D — VIDEO THỰC HÀNH OBS 
+Link video thực hành: https://drive.google.com/file/d/1G43F5iT-RxmcuGOp_wiw1VTWG2SARQ3h/view?usp=sharing
