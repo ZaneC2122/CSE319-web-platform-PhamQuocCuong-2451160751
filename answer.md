@@ -162,3 +162,78 @@ Nguồn tham chiếu AI+Chương 6-06_graphics_multimedia.md
     Ví dụ thực tế:
     Ảnh sản phẩm trong trang bán hàng, kèm tên và giá.
     Ảnh biểu đồ, sơ đồ, hoặc ảnh minh họa trong bài viết học thuật kèm chú thích.
+
+Phần C-SUY LUẬN
+Câu C1 (10đ) — Debug Form
+Form dưới đây có 8 lỗi về validation, accessibility, và best practices. Tìm và sửa tất cả.
+
+<form>
+    Tên: <input type="text">
+    
+    <input type="email" placeholder="Email của bạn">
+    
+    <input type="password" placeholder="Mật khẩu">
+    <input type="password" placeholder="Nhập lại mật khẩu">
+    
+    Phone: <input type="text" value="0901234567">
+    
+    <select>
+        <option>Hà Nội</option>
+        <option>TP.HCM</option>
+    </select>
+    
+    <label>
+        Tôi đồng ý điều khoản
+    </label>
+    
+    <input type="submit" value="Gửi">
+</form>
+Liệt kê lỗi theo format:
+
+Lỗi 1: Dòng Y — Input "Tên" không có <label for="...">, vi phạm accessibility
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+    Lỗi 1: Dòng 2 — Input “Tên” không có <label> liên kết với for/id, vi phạm accessibility
+    Sửa:
+
+    <label for="name">Tên:</label>
+    <input type="text" id="name" name="name" required>
+
+    Lỗi 2: Dòng 4 — Input email không có <label>, thiếu liên kết hỗ trợ screen reader
+    Sửa:
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+
+    Lỗi 3: Dòng 6 — Input mật khẩu 1 không có <label>
+    Sửa:
+
+    <label for="password">Mật khẩu:</label>
+    <input type="password" id="password" name="password" placeholder="Mật khẩu" required autocomplete="new-password">
+
+    Lỗi 4: Dòng 7 — Input xác nhận mật khẩu không có <label>
+    Sửa:
+
+    <label for="confirm-password">Nhập lại mật khẩu:</label>
+    <input type="password" id="confirm-password" name="confirm_password" placeholder="Nhập lại mật khẩu" required autocomplete="new-password">
+
+    Lỗi 5: Dòng 9 — Phone dùng type="text" thay vì type="tel"
+    Sửa:
+
+    <label for="phone">Số điện thoại:</label>
+    <input type="tel" id="phone" name="phone" placeholder="0901234567" required>
+
+    Lỗi 6: Dòng 9 — Phone đang dùng value="0901234567" làm giá trị sẵn, không đúng best practice
+    Sửa: dùng placeholder như trên, không đặt value mặc định nếu không cần.
+
+    Lỗi 7: Dòng 11 — <select> không có <label> liên kết
+    Sửa:
+
+    <label for="city">Tỉnh/Thành phố:</label>
+    <select id="city" name="city" required>
+
+    Lỗi 8: Dòng 15 — “Tôi đồng ý điều khoản” chỉ là <label> rỗng, thiếu checkbox thật
+    Sửa:
+
+    <input type="checkbox" id="agree" name="agree" required>
+    <label for="agree">Tôi đồng ý điều khoản</label>
