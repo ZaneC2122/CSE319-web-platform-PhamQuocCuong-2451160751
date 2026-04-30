@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Đặt hàng</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header, main {
+            padding: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #f2f2f2;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+
+        img {
+            border: 0; /* theo gợi ý validator */
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Thanh toán đơn hàng</h1>
+</header>
+
+<main>
+
+    <!-- Giỏ hàng -->
+    <section aria-labelledby="cart-title">
+        <h2 id="cart-title">Giỏ hàng</h2>
+
+        <table>
+            <caption>Danh sách sản phẩm trong giỏ</caption>
+
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Thành tiền</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>iPhone 16 Pro</td>
+                    <td>25.990.000đ</td>
+                    <td>1</td>
+                    <td>25.990.000đ</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>AirPods Pro 2</td>
+                    <td>5.490.000đ</td>
+                    <td>1</td>
+                    <td>5.490.000đ</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Ốp lưng MagSafe</td>
+                    <td>790.000đ</td>
+                    <td>2</td>
+                    <td>1.580.000đ</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4">Tổng cộng</td>
+                    <td>33.060.000đ</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <!-- Form -->
+    <section aria-labelledby="payment-title">
+        <h2 id="payment-title">Form thanh toán</h2>
+
+        <form action="#" method="post">
+
+            <fieldset>
+                <legend>Phương thức thanh toán</legend>
+
+                <p>
+                    <input type="radio" id="cod" name="payment" value="cod" required>
+                    <label for="cod">COD</label>
+                </p>
+                <p>
+                    <input type="radio" id="bank-transfer" name="payment" value="bank-transfer">
+                    <label for="bank-transfer">Chuyển khoản</label>
+                </p>
+                <p>
+                    <input type="radio" id="e-wallet" name="payment" value="e-wallet">
+                    <label for="e-wallet">Ví điện tử</label>
+                </p>
+            </fieldset>
+
+            <p>
+                <label for="coupon">Mã giảm giá</label><br>
+                <input
+                    type="text"
+                    id="coupon"
+                    name="coupon"
+                    placeholder="SALE2026"
+                    pattern="SALE[0-9]{4}"
+                    title="Mã phải theo định dạng SALE + 4 chữ số">
+            </p>
+
+            <p>
+                <label for="notes">Ghi chú</label><br>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+            </p>
+
+            <fieldset>
+                <legend>Thông tin giao hàng</legend>
+
+                <p>
+                    <label for="deliveryDate">Ngày giao hàng</label><br>
+                    <input type="date" id="deliveryDate" name="deliveryDate" required>
+                </p>
+
+                <p>
+                    <label for="timeSlot">Khung giờ</label><br>
+                    <select id="timeSlot" name="timeSlot" required>
+                        <option value="" disabled selected>Chọn</option>
+                        <option value="morning">Sáng</option>
+                        <option value="afternoon">Chiều</option>
+                        <option value="evening">Tối</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="deliveryDays">Số ngày giao</label><br>
+                    <input type="range" id="deliveryDays" name="deliveryDays" min="1" max="7" value="3">
+                </p>
+            </fieldset>
+
+            <button type="submit">Xác nhận đặt hàng</button>
+
+        </form>
+    </section>
+
+</main>
+
+<script>
+    const deliveryDate = document.getElementById('deliveryDate');
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const y = tomorrow.getFullYear();
+    const m = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const d = String(tomorrow.getDate()).padStart(2, '0');
+
+    deliveryDate.min = `${y}-${m}-${d}`;
+</script>
+
+</body>
+</html>
