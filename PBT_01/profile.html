@@ -3,99 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cường Phạm</title>
+    <title>Cường Phạm - Trang cá nhân</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header, main, footer, aside {
+            padding: 16px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 16px;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        figure {
+            margin: 16px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        caption {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Trang cá nhân - Cường Phạm</h1>
-    <nav>
-        <ul>
-            <li><a href="#about">Về tôi</a></li>
-            <li><a href="#skills">Kỹ năng</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <h1>Trang cá nhân - Cường Phạm</h1>
 
-<main>
+        <nav aria-label="Điều hướng chính">
+            <ul>
+                <li><a href="#about">Về tôi</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Section Giới thiệu -->
-    <section id="about">
-        <h2>Giới thiệu</h2>
-        <article>
-            <p>
-                Xin chào! Tôi là Cường, sinh viên ngành CNTT. Tôi đang học về phát triển web 
-                và quan tâm đến HTML, CSS, JavaScript cũng như các công nghệ backend.
-            </p>
+    <!-- Main content -->
+    <main>
 
-            <figure>
-                <img src="avatar.jpg" alt="Ảnh đại diện của Cường" width="200">
-                <figcaption>Ảnh đại diện của tôi</figcaption>
-            </figure>
-        </article>
-    </section>
+        <!-- About -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">Giới thiệu</h2>
 
-    <!-- Section Kỹ năng -->
-    <section id="skills">
-        <h2>Kỹ năng</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Kỹ năng</th>
-                    <th>Mức độ</th>
-                    <th>Ghi chú</th>
-                </tr>
-            </thead>
+            <article>
+                <h3>Giới thiệu bản thân</h3>
 
-            <tbody>
-                <tr>
-                    <td>HTML</td>
-                    <td>⭐</td>
-                    <td>Hiểu cấu trúc semantic</td>
-                </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td>⭐</td>
-                    <td>Đang học Flexbox</td>
-                </tr>
-                <tr>
-                    <td>Python</td>
-                    <td>⭐⭐</td>
-                    <td>Cơ bản</td>
-                </tr>
-                <tr>
-                    <td>Git</td>
-                    <td>⭐⭐</td>
-                    <td>Quản lý version</td>
-                </tr>
-                <tr>
-                    <td>C#</td>
-                    <td>⭐</td>
-                    <td>WinForms cơ bản</td>
-                </tr>
-            </tbody>
+                <p>
+                    Xin chào! Tôi là Cường, sinh viên ngành CNTT. Tôi đang học về phát triển web 
+                    và quan tâm đến HTML, CSS, JavaScript cũng như các công nghệ backend.
+                </p>
 
-            <tfoot>
-                <tr>
-                    <td colspan="3">Đang tiếp tục học và cải thiện kỹ năng mỗi ngày</td>
-                </tr>
-            </tfoot>
-        </table>
-    </section>
+                <figure>
+                    <img src="avatar.jpg" alt="Ảnh đại diện của Cường" width="200">
+                    <figcaption>Ảnh đại diện của tôi</figcaption>
+                </figure>
+            </article>
+        </section>
 
-</main>
+        <!-- Skills -->
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Kỹ năng</h2>
 
-<!-- Aside liên hệ -->
-<aside id="contact">
-    <h2>Liên hệ</h2>
-    <p>Email: Phamcuong4869@gmail.com</p>
-    <p>SĐT: 0338429772</p>
-</aside>
+            <table>
+                <caption>Bảng kỹ năng cá nhân</caption>
 
-<footer>
-    <p>© 2026 Cường Phạm</p>
-</footer>
+                <thead>
+                    <tr>
+                        <th scope="col">Kỹ năng</th>
+                        <th scope="col">Mức độ</th>
+                        <th scope="col">Ghi chú</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">HTML</th>
+                        <td>⭐</td>
+                        <td>Hiểu cấu trúc semantic</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CSS</th>
+                        <td>⭐</td>
+                        <td>Đang học Flexbox</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Python</th>
+                        <td>⭐⭐</td>
+                        <td>Cơ bản</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Git</th>
+                        <td>⭐⭐</td>
+                        <td>Quản lý version</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C#</th>
+                        <td>⭐</td>
+                        <td>WinForms cơ bản</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            Đang tiếp tục học và cải thiện kỹ năng mỗi ngày
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Aside (contact info bổ trợ) -->
+    <aside id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Liên hệ</h2>
+
+        <address>
+            <p>Email: <a href="mailto:Phamcuong4869@gmail.com">Phamcuong4869@gmail.com</a></p>
+            <p>SĐT: <a href="tel:0338429772">0338429772</a></p>
+        </address>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cường Phạm</p>
+    </footer>
 
 </body>
 </html>
