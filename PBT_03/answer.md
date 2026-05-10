@@ -167,3 +167,80 @@ Nguồn tham chiếu: Chương 9 CSS SELECTORS phần 5 Loại Selector — Từ
         <header class="top-bar dark">
             <h1>ShopTLU</h1>
         -> Text content: "ShopTLU"
+
+Câu A3 (7đ) — Box Model — Tính toán kích thước
+Đọc chương 11 (Box Model). Tính kích thước thực tế (chiều rộng thực tế render trên browser) cho mỗi trường hợp sau:
+
+Nguồn tham chiếu Chương 11 THE BOX MODEL OF CSS phần Cách tính kích thước — NGUYÊN NHÂN CỦA MỌI BUG LAYOUT, BORDER-BOX — Giải Pháp "Một Dòng Cứu Ngàn Dòng", Margin Collapse — Hiện tượng "Margin bị nuốt" 
+/* Trường hợp 1: content-box (mặc định) */
+.box-1 {
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+→ Chiều rộng hiển thị = ???
+→ Không gian chiếm trên trang = ???
+
+/* Trường hợp 2: border-box */
+.box-2 {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+→ Chiều rộng hiển thị = ???
+→ Kích thước content thực tế = ???
+→ Không gian chiếm trên trang = ???
+
+/* Trường hợp 3: Margin collapse */
+.box-a { margin-bottom: 25px; }
+.box-b { margin-top: 40px; }
+→ Khoảng cách giữa box-a và box-b = ???
+→ Giải thích tại sao KHÔNG PHẢI 65px
+Nâng cao: Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px, khoảng cách = bao nhiêu?
+
+    Trường hợp 1: content-box (mặc định)
+    .box-1 {
+        width: 400px;
+        padding: 20px;
+        border: 5px solid black;
+        margin: 10px;
+    }
+    → Chiều rộng hiển thị 
+        Content: 400px
+        Padding trái + phải: 20 + 20 = 40px
+        Border trái + phải: 5 + 5 = 10px
+        Chiều rộng hiển thị = 400 + 40 + 10 = 450px
+    → Không gian chiếm trên trang
+        Chiều rộng hiển thị: 450px
+        Margin trái + phải: 10 + 10 = 20px
+        Không gian chiếm trên trang = 450 + 20 = 470px
+    
+    Trường hợp 2: border-box 
+    .box-2 {
+        box-sizing: border-box;
+        width: 400px;
+        padding: 20px;
+        border: 5px solid black;
+        margin: 10px;
+    }
+    → Chiều rộng hiển thị = 400px (do có thuộc tính  box-sizing: border-box; nên chiều rộng hiển thị = width )
+    → Kích thước content thực tế
+        Từ 400px trừ đi padding và border:
+            Padding trái + phải: 40px
+            Border trái + phải: 10px
+            Kích thước content thực tế = 400 - 40 - 10 = 350px
+    → Không gian chiếm trên trang
+        Kích thước content thực tế = 350px
+        Margin trái + phải: 20px
+        Không gian chiếm trên trang = 400 + 20 = 420px
+    
+    Trường hợp 3: Margin collapse
+    .box-a { margin-bottom: 25px; }
+    .box-b { margin-top: 40px; }
+    → Khoảng cách giữa box-a và box-b = 40px
+    → KHÔNG PHẢI 65px vid khi hai box đứng dọc liên tiếp sẽ có hiện tượng margin đè lên nhau gọi là margin collapse ở chiều dọc nên thay vì lấy khoảng cách là tổng giữa chúng thì ta sẽ lấy khoảng cách = max(25px,40px) = 40px
+
+    Nâng cao: Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px, khoảng cách sẽ là (-10) + 40 = 30px vì giá trị âm làm giảm khoảng cách giữa 2 box
