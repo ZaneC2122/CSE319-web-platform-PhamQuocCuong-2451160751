@@ -308,54 +308,81 @@ Bài B1 (20đ) — Style trang Profile
             Ví dụ: nav a:hover
 Bài B2 (20đ) — Box Model Lab
 
-PHẦN 1 — content-box vs border-box
+    PHẦN 1 — content-box vs border-box
 
-Hộp 1 (content-box)
-CSS:
-- width: 300px
-- padding: 20px
-- border: 5px
+    Hộp 1 (content-box)
+    CSS:
+    - width: 300px
+    - padding: 20px
+    - border: 5px
 
-Tính toán:
-Chiều rộng thực tế:300 + 20 + 20 + 5 + 5 = 350px
+    Tính toán:
+    Chiều rộng thực tế:300 + 20 + 20 + 5 + 5 = 350px
 
-Kết quả DevTools:350px
+    Kết quả DevTools:350px
 
-Hộp 2 (border-box)
-CSS:
-- width: 300px
-- padding: 20px
-- border: 5px
-- box-sizing: border-box
+    Hộp 2 (border-box)
+    CSS:
+    - width: 300px
+    - padding: 20px
+    - border: 5px
+    - box-sizing: border-box
 
-Chiều rộng thực tế:300px
-Content thực tế: 300 - 40 - 10 = 250px
+    Chiều rộng thực tế:300px
+    Content thực tế: 300 - 40 - 10 = 250px
 
-Kết quả DevTools: 300px
-Giải thích 
-content-box:
-- width chỉ tính phần content
-- padding và border được cộng thêm bên ngoài
-border-box:
-- width bao gồm cả content + padding + border
-- kích thước ngoài giữ nguyên
+    Kết quả DevTools: 300px
+    Giải thích 
+    content-box:
+    - width chỉ tính phần content
+    - padding và border được cộng thêm bên ngoài
+    border-box:
+    - width bao gồm cả content + padding + border
+    - kích thước ngoài giữ nguyên
 
-PHẦN 2 — Layout 3 cột
+    PHẦN 2 — Layout 3 cột
 
-Trường hợp KHÔNG dùng border-box
-Sidebar:250 + 15 + 15 + 2 + 2 = 284px
-Content:500 + 20 + 20 + 2 + 2 = 544px
-Ads:250 + 15 + 15 + 2 + 2 = 284px
+    Trường hợp KHÔNG dùng border-box
+    Sidebar:250 + 15 + 15 + 2 + 2 = 284px
+    Content:500 + 20 + 20 + 2 + 2 = 544px
+    Ads:250 + 15 + 15 + 2 + 2 = 284px
 
-Tổng:284 + 544 + 284 = 1112px
-→ Lớn hơn container 1000px
-→ Layout bị tràn
+    Tổng:284 + 544 + 284 = 1112px
+    → Lớn hơn container 1000px
+    → Layout bị tràn
 
-Trường hợp DÙNG border-box
-Sidebar:250px
-Content:500px
-Ads:250px
+    Trường hợp DÙNG border-box
+    Sidebar:250px
+    Content:500px
+    Ads:250px
 
-Tổng:250 + 500 + 250 = 1000px
-→ Layout vừa đúng container
-→ Không bị overflow
+    Tổng:250 + 500 + 250 = 1000px
+    → Layout vừa đúng container
+    → Không bị overflow
+
+Bài B3 (15đ) — Specificity Battle
+    10 CSS Rules + Specificity Score
+        Rule 1	p	(0,0,1)
+        Rule 2	.text	(0,1,0)
+        Rule 3	.highlight	(0,1,0)
+        Rule 4	p.text	(0,1,1)
+        Rule 5	p.highlight	(0,1,1)
+        Rule 6	.text.highlight	(0,2,0)
+        Rule 7	p.text.highlight	(0,2,1)
+        Rule 8	#demo	(1,0,0)
+        Rule 9	#demo.highlight	(1,1,0)
+        Rule 10	p#demo.highlight	(1,1,1)
+    
+    Element cuối cùng hiển thị màu vàng Gold vì rule mạnh nhất là:
+        p#demo.highlight {
+            color: gold;
+        }
+    Selector này gồm:
+        1 ID (#demo)
+        1 class (.highlight)
+        1 element (p)
+    -> Specificity Score(1,1,1) là specificcity cao nhất trong các rule được liệt kê trong file specificity.css nên nó thágw toàn bộ các rulke còn lại
+    
+    Nếu thay đổi thứ tự rule trong CSS thì 
+        Kết quả không đổi nếu specificity khác nhau
+        Kết quả có thể thay đổi nếu specificity bằng nhau, khi đó rule xuất hiện sau sẽ thắng vì  CSS ưu tiên theo:  !important > Inline style > Specificity > Thứ tự xuất hiện trong file

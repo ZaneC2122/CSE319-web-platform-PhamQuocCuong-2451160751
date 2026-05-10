@@ -1,0 +1,61 @@
+/* RULE 1 Specificity: (0,0,1) */
+
+p {
+    color: black;
+}
+
+/* RULE 2 Specificity: (0,1,0) */
+
+.text {
+    color: blue;
+}
+
+/* RULE 3 Specificity: (0,1,0) */
+
+.highlight {
+    color: green;
+}
+
+/* RULE 4 Specificity: (0,1,1) */
+
+p.text {
+    color: orange;
+}
+
+/*RULE 5 Specificity: (0,1,1) */
+
+p.highlight {
+    color: purple;
+}
+
+/* RULE 6 Specificity: (0,2,0) */
+
+.text.highlight {
+    color: brown;
+}
+
+/* RULE 7 Specificity: (0,2,1) */
+
+p.text.highlight {
+    color: pink;
+}
+
+/* RULE 8 Specificity: (1,0,0) */
+
+#demo {
+    color: red;
+}
+
+/* RULE 9 Specificity: (1,1,0) */
+
+#demo.highlight {
+    color: gray;
+}
+
+/* RULE 10 Specificity: (1,1,1) */
+
+p#demo.highlight {
+    color: gold;
+    font-size: 40px;
+    font-weight: bold;
+}
