@@ -244,3 +244,51 @@ Nâng cao: Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px
     → KHÔNG PHẢI 65px vid khi hai box đứng dọc liên tiếp sẽ có hiện tượng margin đè lên nhau gọi là margin collapse ở chiều dọc nên thay vì lấy khoảng cách là tổng giữa chúng thì ta sẽ lấy khoảng cách = max(25px,40px) = 40px
 
     Nâng cao: Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px, khoảng cách sẽ là (-10) + 40 = 30px vì giá trị âm làm giảm khoảng cách giữa 2 box
+
+Câu A4 (5đ) — Specificity (Độ ưu tiên)
+Cho các CSS rules sau cùng target 1 element <p class="price" id="main-price">:
+
+p { color: black; }                    /* Rule A */
+.price { color: blue; }               /* Rule B */
+#main-price { color: red; }           /* Rule C */
+p.price { color: green; }             /* Rule D */
+1.Tính specificity score (a, b, c) cho mỗi rule 
+2.Element sẽ có màu gì? Giải thích 
+3.Nếu thêm <p class="price" id="main-price" style="color: orange;">, element có màu gì? 
+4.Nếu Rule A thêm !important, element có màu gì? Tại sao?
+
+Nguồn tham chiếu: Chương 9: CSS Selectors phần Specificity — "Ai thắng khi xung đột?"
+
+    1. Tính Specificity Score
+        Rule A:p
+        ID: 0
+        Class: 0
+        Element: 1
+        -> Score:(0,0,1)
+        Rule B: .price
+        ID: 0
+        Class: 1
+        Element: 0
+        -> Score:(0,1,0)
+        Rule C: #main-price
+        ID: 1
+        Class: 0
+        Element: 0
+        -> Score:(0,1,0)
+        Rule D: p.price
+        p → 1 element
+        .price → 1 class
+        Score
+        (0, 1, 1)
+    2. Element sẽ có màu đỏ vì Rule C(1,0,0): #main-price { color: red; } có score cao nhất mà trong sắp xếp Specificity khi nhiều rule nhắm cùng element → rule nào có specificity cao hơn thắng
+    3. Nếu thêm inline style
+        <p class="price" id="main-price" style="color: orange;">
+
+        Inline style có độ ưu tiên cực cao(1,0,0,0)
+        Inline > ID > Class > Element
+        Khi đó màu sẽ không còn là màu đỏ(red) mà là màu cam (orange)
+    4. Nếu Rule A thêm !important
+        Rule A thành:
+        p {color: black !important;}
+        Kết quả: màu đen (black)
+        Vì !important là đánh dấu quan trọng nên ưu tiên cao hơn specificity thông thường(♾️ Vô cực ).Nên dù #main-price mạnh hơn về specificity nhưng black !important vẫn thắng.
