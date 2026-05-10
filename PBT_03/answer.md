@@ -306,3 +306,56 @@ Bài B1 (20đ) — Style trang Profile
             Ví dụ trong file: nav a
         5. Pseudo-class Selector: Dùng dấu :
             Ví dụ: nav a:hover
+Bài B2 (20đ) — Box Model Lab
+
+PHẦN 1 — content-box vs border-box
+
+Hộp 1 (content-box)
+CSS:
+- width: 300px
+- padding: 20px
+- border: 5px
+
+Tính toán:
+Chiều rộng thực tế:300 + 20 + 20 + 5 + 5 = 350px
+
+Kết quả DevTools:350px
+
+Hộp 2 (border-box)
+CSS:
+- width: 300px
+- padding: 20px
+- border: 5px
+- box-sizing: border-box
+
+Chiều rộng thực tế:300px
+Content thực tế: 300 - 40 - 10 = 250px
+
+Kết quả DevTools: 300px
+Giải thích 
+content-box:
+- width chỉ tính phần content
+- padding và border được cộng thêm bên ngoài
+border-box:
+- width bao gồm cả content + padding + border
+- kích thước ngoài giữ nguyên
+
+PHẦN 2 — Layout 3 cột
+
+Trường hợp KHÔNG dùng border-box
+Sidebar:250 + 15 + 15 + 2 + 2 = 284px
+Content:500 + 20 + 20 + 2 + 2 = 544px
+Ads:250 + 15 + 15 + 2 + 2 = 284px
+
+Tổng:284 + 544 + 284 = 1112px
+→ Lớn hơn container 1000px
+→ Layout bị tràn
+
+Trường hợp DÙNG border-box
+Sidebar:250px
+Content:500px
+Ads:250px
+
+Tổng:250 + 500 + 250 = 1000px
+→ Layout vừa đúng container
+→ Không bị overflow

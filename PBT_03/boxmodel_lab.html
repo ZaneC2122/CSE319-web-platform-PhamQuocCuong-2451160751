@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Lab</title>
+
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+
+<body>
+
+    <h1>BOX MODEL LAB</h1>
+
+    <section>
+        <h2>Phần 1 — content-box vs border-box</h2>
+
+        <div class="box-wrapper">
+
+            <!-- Content Box -->
+            <div class="demo-box content-box">
+                <h3>Content Box</h3>
+
+                <p>
+                    width: 300px<br>
+                    padding: 20px<br>
+                    border: 5px
+                </p>
+            </div>
+
+            <!-- Border Box -->
+            <div class="demo-box border-box">
+                <h3>Border Box</h3>
+
+                <p>
+                    width: 300px<br>
+                    padding: 20px<br>
+                    border: 5px
+                </p>
+            </div>
+
+        </div>
+    </section>
+    
+    <section>
+        <h2>Phần 2 — Layout 3 cột</h2>
+
+        <h3>Trường hợp KHÔNG dùng border-box</h3>
+
+        <div class="container normal-layout">
+
+            <aside class="sidebar">
+                Sidebar 250px + padding 15px
+            </aside>
+
+            <main class="content">
+                Content 500px + padding 20px
+            </main>
+
+            <aside class="ads">
+                Ads 250px + padding 15px
+            </aside>
+
+        </div>
+
+        <h3>Trường hợp DÙNG border-box</h3>
+
+        <div class="container fixed-layout">
+
+            <aside class="sidebar">
+                Sidebar 250px + padding 15px
+            </aside>
+
+            <main class="content">
+                Content 500px + padding 20px
+            </main>
+
+            <aside class="ads">
+                Ads 250px + padding 15px
+            </aside>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
