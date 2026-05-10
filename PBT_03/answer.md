@@ -292,3 +292,17 @@ Nguồn tham chiếu: Chương 9: CSS Selectors phần Specificity — "Ai thắ
         p {color: black !important;}
         Kết quả: màu đen (black)
         Vì !important là đánh dấu quan trọng nên ưu tiên cao hơn specificity thông thường(♾️ Vô cực ).Nên dù #main-price mạnh hơn về specificity nhưng black !important vẫn thắng.
+
+Phần B-thực hành:
+Bài B1 (20đ) — Style trang Profile
+    5 loại selector khác nhau trong file CSS
+        1. Element Selector: Chọn theo tên thẻ HTML
+            Ví dụ trong file: <body> , <table> , <footer>
+        2. Class Selector: Chọn theo class bằng dấu .\
+            Ví dụ trong file: nav a.active
+        3. ID Selector: Chọn theo id bằng dấu #
+            Ví dụ trong file: #main-header
+        4. Descendant Selector: Chọn phần tử con nằm bên trong phần tử cha.
+            Ví dụ trong file: nav a
+        5. Pseudo-class Selector: Dùng dấu :
+            Ví dụ: nav a:hover
