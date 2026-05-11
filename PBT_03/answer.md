@@ -498,3 +498,6 @@ Câu C2 (10đ) — Cascade Puzzle
     Thứ tự ưu tiên trong CSS:
 
     !important mạnh nhất, sau đó đến inline style, tiếp theo là ID selector, class selector và cuối cùng là element selector. Nếu một phần tử không có màu riêng thì nó sẽ kế thừa màu từ phần tử cha.
+
+Phần D
+    Link video:https://drive.google.com/file/d/1TfIEM0aKLpjaO83h7ZM2euZdUZ-we3ip/view?usp=sharing
