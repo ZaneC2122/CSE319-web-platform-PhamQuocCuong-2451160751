@@ -386,3 +386,75 @@ Bài B3 (15đ) — Specificity Battle
     Nếu thay đổi thứ tự rule trong CSS thì 
         Kết quả không đổi nếu specificity khác nhau
         Kết quả có thể thay đổi nếu specificity bằng nhau, khi đó rule xuất hiện sau sẽ thắng vì  CSS ưu tiên theo:  !important > Inline style > Specificity > Thứ tự xuất hiện trong file
+
+PHẦN C — DEBUG & SUY LUẬN (20 điểm)
+Câu C1 (10đ) — Debug CSS Layout
+Layout dưới đây bị vỡ. Container rộng 960px, sidebar + content phải nằm cạnh nhau. Nhưng content bị đẩy xuống dòng mới.
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+}
+Tính chiều rộng thực tế của sidebar và content (content-box!)
+Giải thích tại sao layout bị vỡ
+Đưa ra 2 cách sửa khác nhau (1 cách dùng border-box, 1 cách không dùng)
+Tạo file debug_layout.html + debug_layout.css chứng minh cả 2 cách sửa hoạt động
+
+    Mặc định: box-sizing:content-box nghĩa là width chỉ tính phần content ,padding và border sẽ cộng thêm ra ngoài.
+
+    Sidebar
+    Content:300px
+    Padding trái + phải: 20 + 20 = 40px
+    Border trái + phải: 1 + 1 = 2px
+    Chiều rộng thực tế sidebar: 300 + 40 + 2 = 342px
+
+    Content
+    Content width:660px
+    Padding trái + phải: 30 + 30 = 60px
+    Border trái + phải: 1 + 1 = 2px
+    Chiều rộng thực tế content: 660 + 60 + 2 = 722px
+    Tổng chiều rộng thực tế: 342 + 722 = 1064px
+
+    2. Giải thích tại sao layout bị vỡ
+        Container chỉ rộng: 960px
+        Nhưng tổng chiều rộng thật của: sidebar + content là:1064px
+        Vì: 1064px > 960px nên không đủ chỗ trên cùng một dòng.
+        Kết quả là content bị đẩy xuống dòng dưới.
+    
+    Cách sửa
+        Thứ 1 - Dùng border-box
+        Cho: box-sizing: border-box;
+        Khi đó: width đã bao gồm: content,padding,border
+        CSS sửa
+        .sidebar,
+        .content {
+            box-sizing: border-box;
+        }
+        Kết quả
+        Sidebar: 300px
+        Content:660px
+        Tổng:960px
+        → layout không vỡ.
+        Thứ 2 - Không dùng border-box
+        Giữ content-box nhưng phải tính toán lại và giảm width content
+        Sidebar thực tế: 342px
+        Container:960px
+        padding: 60px
+        border: 2px
+        Content width cần là: 618 - 60 - 2 = 556px
+        CSS sửa
+        .content {
+            width: 556px;
+        }

@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+.container {
+    width: 960px;
+    margin: 20px auto;
+    border: 3px solid black;
+    overflow: auto;
+}
+
+/* =========================
+   Layout lỗi
+========================= */
+
+.broken .sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #cfe2ff;
+    float: left;
+}
+
+.broken .content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: #ffe599;
+    float: left;
+}
+
+/* =========================
+   Sửa bằng border-box
+========================= */
+
+.fixed-borderbox .sidebar,
+.fixed-borderbox .content {
+    box-sizing: border-box;
+    float: left;
+}
+
+.fixed-borderbox .sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #d9ead3;
+}
+
+.fixed-borderbox .content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: #ead1dc;
+}
+
+/* =========================
+   Sửa không dùng border-box
+========================= */
+
+.fixed-width .sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #cfe2ff;
+    float: left;
+}
+
+.fixed-width .content {
+    width: 556px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff2cc;
+    float: left;
+}
