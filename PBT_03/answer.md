@@ -458,3 +458,43 @@ Tạo file debug_layout.html + debug_layout.css chứng minh cả 2 cách sửa 
         .content {
             width: 556px;
         }
+
+Câu C2 (10đ) — Cascade Puzzle
+    Cascade Puzzle Answers
+
+    "Sản phẩm A"
+
+    Font-size của h2 là 20px và màu hiển thị cuối cùng là green.
+
+    Ban đầu .container đặt font-size: 14px, tuy nhiên h2 có rule .card .title đặt lại font-size: 20px nên giá trị này được ưu tiên sử dụng. 
+
+    Về màu chữ, #featured .title đặt màu đỏ cho h2 vì phần tử nằm trong id "featured". Tuy nhiên h2 đồng thời có class "highlight", và .highlight sử dụng color: green !important. Do !important có độ ưu tiên cao hơn các rule thông thường nên màu cuối cùng của "Sản phẩm A" là green.
+
+    "Mô tả sản phẩm"
+
+    Đoạn p trong card featured có màu blue.
+
+    .card được đặt color: blue, sau đó rule .card p dùng color: inherit. Giá trị inherit có nghĩa là phần tử sẽ lấy màu từ phần tử cha của nó. Phần tử cha ở đây là .card, nên đoạn p kế thừa màu xanh dương từ .card.
+
+    "Sản phẩm B"
+
+    Font-size của h2 là 20px và màu là blue.
+
+    Rule .card .title đặt kích thước chữ cho h2 là 20px, vì vậy h2 sử dụng kích thước này. Không có rule nào đặt màu riêng cho h2 trong card thứ hai nên màu chữ được kế thừa từ .card. Vì .card có color: blue nên "Sản phẩm B" hiển thị màu xanh dương.
+
+    "Mô tả sản phẩm B"
+
+    Đoạn p có màu green.
+
+    Phần tử p này có class "highlight". Rule .highlight đặt color: green !important, vì vậy màu xanh lá được áp dụng trực tiếp cho p. Rule này mạnh hơn màu blue được kế thừa từ .card, nên kết quả cuối cùng là green.
+
+    Kết quả cuối cùng:
+
+    - "Sản phẩm A": font-size 20px, color green
+    - "Mô tả sản phẩm": color blue
+    - "Sản phẩm B": font-size 20px, color blue
+    - "Mô tả sản phẩm B": color green
+
+    Thứ tự ưu tiên trong CSS:
+
+    !important mạnh nhất, sau đó đến inline style, tiếp theo là ID selector, class selector và cuối cùng là element selector. Nếu một phần tử không có màu riêng thì nó sẽ kế thừa màu từ phần tử cha.

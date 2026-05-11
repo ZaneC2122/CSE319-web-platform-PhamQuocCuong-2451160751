@@ -1,0 +1,61 @@
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    font-size: 14px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    color: blue;
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.card .title {
+    font-size: 20px;
+}
+
+/* =========================
+   PARAGRAPH
+========================= */
+
+.card p {
+    color: inherit;
+}
+
+/* =========================
+   FEATURED TITLE
+========================= */
+
+#featured .title {
+    color: red;
+}
+
+/* =========================
+   HIGHLIGHT
+========================= */
+
+.highlight {
+    color: green !important;
+}
