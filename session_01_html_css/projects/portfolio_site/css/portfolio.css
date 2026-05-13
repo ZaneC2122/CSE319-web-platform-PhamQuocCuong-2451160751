@@ -96,3 +96,11 @@
         font-size: 2rem;
     }
 }
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+} 
