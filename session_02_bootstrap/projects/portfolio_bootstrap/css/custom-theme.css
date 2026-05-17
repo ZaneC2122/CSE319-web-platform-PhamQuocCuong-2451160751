@@ -8,3 +8,19 @@
     --bs-btn-border-color: var(--bs-primary);
     --bs-btn-hover-bg: #1c8f6d;
 }
+:root {
+    /* SPACING SCALE */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --space-xl: 64px;
+}
+section {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+.card {
+    padding: var(--space-md);
+}
