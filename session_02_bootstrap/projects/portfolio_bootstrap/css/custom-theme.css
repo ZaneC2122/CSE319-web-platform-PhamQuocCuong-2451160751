@@ -24,3 +24,39 @@ section {
 .card {
     padding: var(--space-md);
 }
+:root {
+    /* COLOR SYSTEM */
+    --bs-body-bg: #f8f9fa;
+    --bs-body-color: #212529;
+
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #ffffff !important;
+}
+
+/* CARD */
+.card {
+    border-radius: 16px;
+    border: none;
+}
+
+/* BUTTON */
+.btn {
+    border-radius: 12px;
+}
+
+/* IMAGE */
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+}
+:root {
+    --bs-border-radius: 12px;
+    --bs-border-radius-lg: 16px;
+}
