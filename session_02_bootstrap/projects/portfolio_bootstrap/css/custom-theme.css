@@ -1,71 +1,10 @@
-/* HERO BACKGROUND */
-.hero-bg {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
+:root {
+    /* PRIMARY COLOR */
+    --bs-primary: #00d394;        /* teal */
+    --bs-primary-rgb: 32, 201, 151;
 
-/* PORTFOLIO IMAGE */
-.portfolio-img {
-    height: 220px;
-    object-fit: cover;
-}
-
-/* OVERLAY */
-.portfolio-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    transition: 0.3s ease;
-}
-
-.lightbox-link:hover .portfolio-overlay {
-    opacity: 1;
-}
-/* LIGHTBOX BASE */
-.lightbox {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0,0,0,0.8);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.3s;
-    z-index: 9999;
-}
-
-/* SHOW */
-.lightbox:target {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* IMAGE */
-.lightbox img {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 10px;
-}
-
-/* CLOSE BUTTON */
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-
-    font-size: 40px;
-    color: white;
-    text-decoration: none;
+    /* BUTTON */
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: #1c8f6d;
 }
