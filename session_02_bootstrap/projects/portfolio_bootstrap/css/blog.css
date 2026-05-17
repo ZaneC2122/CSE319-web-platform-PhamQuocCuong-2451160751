@@ -1,0 +1,11 @@
+.sticky-top {
+    top: 100px;
+}
+.badge {
+    cursor: pointer;
+}
+
+.badge:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
